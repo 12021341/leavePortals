@@ -3,16 +3,52 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NavigateComponent } from './components/navigate/navigate.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { LeaveComponent } from './components/leave/leave.component';
+import { LeaveModalComponent } from './components/leave/leave-modal.component';
+import { Routes, RouterModule } from '@angular/router';
+import { CalendarService } from '../app/services/calendarService.service';
+import { LeaveListComponent } from './components/leave-list/leave-list.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule, FormsModule  } from '@angular/forms';
+import { NgbPaginationModule, NgbAlertModule, NgbDatepicker, NgbInputDatepicker } from '@ng-bootstrap/ng-bootstrap';
+// import { NgbdDatepickerPopup } from './datepicker-popup';
+
+const appRoutes: Routes = [
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'leave', component: LeaveComponent }
+]
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavigateComponent,
+    DashboardComponent,
+    LeaveComponent,
+    LeaveListComponent,
+    LeaveModalComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule.forRoot(appRoutes),
+    NgbModule,
+    NgbPaginationModule,
+    NgbAlertModule,
+    // FormControl,
+    ReactiveFormsModule,
+    FormsModule
+    // NgbDatepicker,
+    // NgbInputDatepicker
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [CalendarService, LeaveModalComponent],
+  bootstrap: [AppComponent],
+  entryComponents: [
+    LeaveModalComponent
+  ]
 })
-export class AppModule { }
+export class AppModule { 
+
+
+}
