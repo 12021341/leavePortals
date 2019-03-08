@@ -13,6 +13,7 @@ import { LeaveListComponent } from './components/leave-list/leave-list.component
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule, FormsModule  } from '@angular/forms';
 import { NgbPaginationModule, NgbAlertModule, NgbDatepicker, NgbInputDatepicker } from '@ng-bootstrap/ng-bootstrap';
+import { LeaveFormComponent } from './components/leave-form/leave-form.component';
 // import { NgbdDatepickerPopup } from './datepicker-popup';
 
 const appRoutes: Routes = [
@@ -28,6 +29,7 @@ const appRoutes: Routes = [
     LeaveComponent,
     LeaveListComponent,
     LeaveModalComponent,
+    LeaveFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,14 +40,15 @@ const appRoutes: Routes = [
     NgbAlertModule,
     // FormControl,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    
     // NgbDatepicker,
     // NgbInputDatepicker
   ],
   providers: [CalendarService, LeaveModalComponent],
   bootstrap: [AppComponent],
   entryComponents: [
-    LeaveModalComponent
+    LeaveFormComponent
   ]
 })
 export class AppModule { 
